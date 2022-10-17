@@ -15,17 +15,24 @@ while end_of_auction == False:
     bids[bidder_name] = bid_amount
 
     heighest_bid = 0
-    winner = ""
+    winner = []
     winners_number = 0
     for bidder in bids:
         if bids[bidder] > heighest_bid:
-            heighest_bid = bids[bidder]
-            winner = bidder
             winners_number = 1
+            heighest_bid = bids[bidder]
+            winner = [bidder]
         elif bids[bidder] == heighest_bid:
             winners_number += 1
             heighest_bid = bids[bidder]
-            winner += f", {bidder}"
+            if winners_number == 1:
+                winner.append(bidder)
+            elif winners_number > 1:
+                winner.append(", ")
+                winner.append(bidder)
+    if winners_number > 1:
+        winner[-2] = " and "
+    winner = ''.join(winner)
 
     other_bidders = input("Are there any other bidders?\n").lower()
 
