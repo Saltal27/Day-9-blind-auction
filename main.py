@@ -1,5 +1,4 @@
 from replit import clear
-
 from art import logo
 
 print(logo)
@@ -34,7 +33,7 @@ while end_of_auction == False:
         winner[-2] = " and "
     winner = ''.join(winner)
 
-    other_bidders = input("Are there any other bidders?\n").lower()
+    other_bidders = input("Are there any other bidders?\nTypes 'yes' or 'no'.\n").lower()
 
     if other_bidders == "yes":
         clear()
